@@ -19,6 +19,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--canvas);
+  scroll-behavior: smooth;
 }
 
 button, select { font: inherit; }
@@ -98,7 +99,8 @@ h1 span { color: #e4a344; font-size: 14px; vertical-align: 3px; }
 .notice > svg { width: 14px; height: 14px; flex: 0 0 auto; fill: none; stroke: #c1944c; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .notice-close { margin-left: auto; padding: 0 3px; border: 0; color: #ad9d7e; background: transparent; font-size: 17px; line-height: 1; cursor: pointer; }
 .metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; margin-bottom: 15px; }
-.metric-card, .panel { position: relative; overflow: hidden; border: 1px solid #e9eeeb; border-radius: 10px; background: var(--panel); box-shadow: 0 2px 8px #1a38250a; }
+.metric-card, .panel { position: relative; overflow: hidden; border: 1px solid #e9eeeb; border-radius: 10px; background: var(--panel); box-shadow: 0 2px 8px #1a38250a; transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+.metric-card:hover, .panel:hover { border-color: #dae7e0; box-shadow: 0 8px 20px #1a382511; transform: translateY(-2px); }
 .metric-card { min-height: 143px; padding: 15px 15px 12px; }
 .metric-top { display: flex; align-items: center; gap: 8px; }
 .metric-icon { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 8px; }
@@ -157,17 +159,19 @@ h1 span { color: #e4a344; font-size: 14px; vertical-align: 3px; }
 .chart-tooltip { position: absolute; top: 0; right: 3%; display: grid; gap: 2px; padding: 6px 8px; border: 1px solid #edf0ed; border-radius: 5px; background: #fff; box-shadow: 0 3px 9px #20352b12; font-size: 8px; }
 .chart-tooltip strong { color: #38463f; font-size: 9px; }.chart-tooltip span { color: #97a39c; }
 .map-panel { min-width: 0; }
+.map-panel.is-expanded { position: fixed; inset: 14px; z-index: 20; display: flex; flex-direction: column; padding: 18px; background: #fff; box-shadow: 0 12px 40px #1a382533; }
+.map-panel.is-expanded:hover { transform: none; }
+.map-panel.is-expanded .activity-map { min-height: 0; height: auto; flex: 1; }
 .map-expand { display: grid; width: 26px; height: 26px; place-items: center; border: 1px solid #e9eeeb; border-radius: 5px; color: #86938c; background: #fff; cursor: pointer; }
 .map-expand svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.map-illustration { position: relative; height: 202px; overflow: hidden; margin-top: 15px; border-radius: 7px; background: #eef3ef; }
-.street-map { width: 100%; height: 100%; }
-.street-map text { fill: #8c9b91; font: 600 8px "DM Sans", sans-serif; letter-spacing: .7px; }
-.map-marker .marker-halo { fill: #43ae8a; opacity: .15; }
-.map-marker .marker-core { fill: #39a47f; opacity: .83; }
-.map-marker .marker-center { fill: #fff; }
-.marker-medium .marker-halo { fill: #e5b35b; }.marker-medium .marker-core { fill: #d4a449; }.marker-small .marker-halo { fill: #8ba9bf; }.marker-small .marker-core { fill: #7e9eb6; }
-.map-attribution { position: absolute; right: 5px; bottom: 5px; padding: 3px 5px; border-radius: 3px; color: #8c9991; background: #ffffffc9; font-size: 7px; }
-.map-legend { position: absolute; bottom: 9px; left: 9px; display: flex; gap: 9px; padding: 6px 8px; border: 1px solid #ebefec; border-radius: 5px; color: #7d8983; background: #ffffffed; font-size: 7px; }
+.activity-map { position: relative; height: 202px; overflow: hidden; margin-top: 15px; border-radius: 7px; background: #eef3ef; }
+.activity-map .leaflet-container { width: 100%; height: 100%; font: 10px "DM Sans", "Segoe UI", sans-serif; }
+.activity-map .leaflet-popup-content-wrapper { border-radius: 7px; }
+.activity-map .leaflet-popup-content { margin: 10px 12px; color: #435149; line-height: 1.5; }
+.activity-map .leaflet-popup-content strong { display: block; margin-bottom: 3px; }
+.map-status { position: absolute; z-index: 1100; inset: 0; display: grid; place-items: center; margin: 0; padding: 20px; color: #63716a; background: #eef3ef; font-size: 11px; text-align: center; }
+.map-status[hidden] { display: none; }
+.map-legend { position: absolute; z-index: 1000; bottom: 9px; left: 9px; display: flex; gap: 9px; padding: 6px 8px; border: 1px solid #ebefec; border-radius: 5px; color: #7d8983; background: #ffffffed; font-size: 7px; }
 .map-legend span { display: inline-flex; align-items: center; gap: 4px; }
 .heat-dot { width: 6px; height: 6px; border-radius: 50%; }.heat-dot.high { background: #39a47f; }.heat-dot.medium { background: #d4a449; }.heat-dot.low { background: #7e9eb6; }
 
@@ -199,7 +203,7 @@ h1 span { color: #e4a344; font-size: 14px; vertical-align: 3px; }
 @media (min-width: 1500px) {
   .page-content { padding-top: 40px; }
   .metric-card { min-height: 155px; padding: 17px; }
-  .map-illustration { height: 222px; }
+  .activity-map { height: 222px; }
   .chart-wrap { height: 195px; }
 }
 
@@ -211,7 +215,7 @@ h1 span { color: #e4a344; font-size: 14px; vertical-align: 3px; }
   .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metric-card { min-height: 137px; }
   .primary-grid, .bottom-grid { grid-template-columns: minmax(0, 1fr); }
-  .map-illustration { height: 225px; }
+  .activity-map { height: 225px; }
 }
 
 @media (max-width: 700px) {
@@ -244,7 +248,7 @@ h1 span { color: #e4a344; font-size: 14px; vertical-align: 3px; }
   .primary-grid, .bottom-grid { gap: 10px; }
   .panel { padding: 14px 12px 12px; }
   .chart-wrap { height: 160px; }
-  .map-illustration { height: 190px; }
+  .activity-map { height: 190px; }
   .page-footer { flex-direction: column; font-size: 7px; }
 }
 

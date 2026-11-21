@@ -6,7 +6,9 @@
     <meta name="theme-color" content="#f5f7f6">
     <meta name="description" content="GeoPulse hyper-local retail mobility analytics dashboard prototype.">
     <title>GeoPulse — Mobility overview</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -158,23 +160,8 @@
                 <div><h2>Activity map</h2><p>Footfall by local area</p></div>
                 <button type="button" class="map-expand" aria-label="Expand activity map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3.5h-4.5V8M16 3.5h4.5V8M8 20.5h-4.5V16M16 20.5h4.5V16"/></svg></button>
               </div>
-              <div class="map-illustration" role="img" aria-label="Illustrative map with activity markers in Downtown, Riverside, and Market Square">
-                <svg class="street-map" viewBox="0 0 500 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <rect width="500" height="300" fill="#eef3ef"/>
-                  <path d="M-20 42 132 95 264 30 520 105M-20 245 120 185 265 246 520 175M95-20 120 320M245-20 270 320M395-20 365 320" fill="none" stroke="#fff" stroke-width="22"/>
-                  <path d="M-20 42 132 95 264 30 520 105M-20 245 120 185 265 246 520 175M95-20 120 320M245-20 270 320M395-20 365 320" fill="none" stroke="#dce6df" stroke-width="1.5" stroke-dasharray="3 5"/>
-                  <path d="M-20 135 120 130 225 160 345 125 520 145M180-20 195 80 168 160 198 220 180 320M325-20 315 68 340 142 300 225 320 320" fill="none" stroke="#fff" stroke-width="12"/>
-                  <path d="M-20 135 120 130 225 160 345 125 520 145M180-20 195 80 168 160 198 220 180 320M325-20 315 68 340 142 300 225 320 320" fill="none" stroke="#dce6df" stroke-width="1" stroke-dasharray="3 5"/>
-                  <path d="M32 195c28-22 52-24 80-10s44 12 70-3 49-9 68 7" fill="none" stroke="#b8dfd1" stroke-width="19" stroke-linecap="round"/>
-                  <path d="M32 195c28-22 52-24 80-10s44 12 70-3 49-9 68 7" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="5 6"/>
-                  <rect x="208" y="76" width="86" height="49" rx="9" fill="#e1eee6"/>
-                  <rect x="375" y="198" width="69" height="41" rx="8" fill="#e1eee6"/>
-                  <text x="54" y="73">RIVERSIDE</text><text x="208" y="59">DOWNTOWN</text><text x="348" y="266">MARKET SQ.</text>
-                  <g class="map-marker marker-large" transform="translate(250 145)"><circle class="marker-halo" r="34"/><circle class="marker-core" r="17"/><circle class="marker-center" r="4"/></g>
-                  <g class="map-marker marker-medium" transform="translate(110 112)"><circle class="marker-halo" r="26"/><circle class="marker-core" r="12"/><circle class="marker-center" r="3"/></g>
-                  <g class="map-marker marker-small" transform="translate(380 185)"><circle class="marker-halo" r="22"/><circle class="marker-core" r="10"/><circle class="marker-center" r="3"/></g>
-                </svg>
-                <div class="map-attribution">Illustrative map</div>
+              <div class="activity-map" id="activity-map" role="region" aria-label="Interactive OpenStreetMap centered on Pune">
+                <p class="map-status" id="map-status" hidden>Map could not be loaded. Check your internet connection and reload the page.</p>
                 <div class="map-legend"><span><i class="heat-dot high"></i>High</span><span><i class="heat-dot medium"></i>Medium</span><span><i class="heat-dot low"></i>Low</span></div>
               </div>
             </article>

@@ -107,15 +107,16 @@ GeoPulse aims to transform location-based retail and mobility data into useful a
 
 ## 11. Initial Dashboard Design
 
-The repository includes a responsive, static dashboard prototype in `index.html`.
+The repository includes a responsive dashboard prototype in `index.html`.
 It sketches an overview for footfall activity, local areas, mobility trends, and
-high-level insights. The figures and map are illustrative only; they are not
-based on a collected or validated dataset. The reporting-period selector and
-sample report export demonstrate the intended interactions.
+high-level insights. The activity panel uses an interactive OpenStreetMap view
+centered on Pune; the heat circles and dashboard figures are illustrative only,
+not based on a collected or validated dataset. The reporting-period selector
+and sample report export demonstrate the intended interactions.
 
-Open `index.html` in a browser to preview the design. Replace the sample values
-and visualizations with verified project data before using the dashboard to
-make or communicate business decisions.
+Open `index.html` in a browser with an internet connection to preview the map
+and dashboard. Replace the sample values and markers with verified project data
+before using the dashboard to make or communicate business decisions.
 
 **Note:** This README describes the proposed project and its initial dashboard
 design. Actual datasets, implementation details, tools, and analytical results
