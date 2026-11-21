@@ -94,6 +94,7 @@ h1 span { color: #e4a344; font-size: 14px; vertical-align: 3px; }
 .button-primary:hover { background: #176d55; }
 .button svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .notice { display: flex; min-height: 35px; align-items: center; gap: 9px; margin-bottom: 15px; padding: 7px 10px; border: 1px solid #f0e8d8; border-radius: 7px; color: #8d774f; background: #fffaf1; font-size: 9px; }
+.notice[hidden] { display: none; }
 .notice > svg { width: 14px; height: 14px; flex: 0 0 auto; fill: none; stroke: #c1944c; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .notice-close { margin-left: auto; padding: 0 3px; border: 0; color: #ad9d7e; background: transparent; font-size: 17px; line-height: 1; cursor: pointer; }
 .metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px; margin-bottom: 15px; }
