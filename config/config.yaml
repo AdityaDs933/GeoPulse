@@ -1,0 +1,46 @@
+project:
+  name: "GeoPulse"
+  title: "Hyper-Local Retail Mobility Analytics"
+  organization: "Infotact Solutions"
+  version: "1.0.0"
+
+# Target Geographic Retail Corridors
+locations:
+  active_city: "bengaluru"
+  cities:
+    bengaluru:
+      name: "Bengaluru (Koramangala & Indiranagar)"
+      center_lat: 12.9352
+      center_lon: 77.6245
+      bbox: [12.9150, 77.6050, 12.9850, 77.6550] # [min_lat, min_lon, max_lat, max_lon]
+    pune:
+      name: "Pune (FC Road & Koregaon Park)"
+      center_lat: 18.5204
+      center_lon: 73.8567
+      bbox: [18.5000, 73.8200, 18.5500, 73.9100]
+
+# Retail POI Categories
+retail_categories:
+  - "cafe"
+  - "restaurant"
+  - "apparel"
+  - "supermarket"
+  - "electronics"
+  - "department_store"
+  - "pharmacy"
+
+# Paths
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  models_dir: "models"
+  reports_dir: "reports"
+  figures_dir: "reports/figures"
+
+# Mobility Simulation Settings (Default baseline)
+simulation:
+  sample_devices: 500
+  days: 14
+  peak_hours: [12, 13, 18, 19, 20, 21]
+  dwell_time_mean_minutes: 28.5
+  weekend_traffic_multiplier: 1.45
