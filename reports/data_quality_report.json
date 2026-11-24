@@ -1,0 +1,48 @@
+{
+  "project": "GeoPulse",
+  "generated_at": "2026-11-24T16:58:50.724876",
+  "status": "PASS",
+  "audits": {
+    "pois": {
+      "dataset": "Points of Interest (POIs)",
+      "initial_record_count": 15,
+      "null_counts": {
+        "id": 0,
+        "name": 0,
+        "category": 0,
+        "latitude": 0,
+        "longitude": 0,
+        "city": 0,
+        "rating": 0,
+        "brand": 0
+      },
+      "duplicate_count": 0,
+      "out_of_bounds_dropped": 0,
+      "final_record_count": 15,
+      "completeness_pct": 100.0
+    },
+    "telemetry": {
+      "dataset": "Mobility Footfall Telemetry",
+      "initial_record_count": 6636,
+      "null_counts": {
+        "ping_id": 0,
+        "device_id": 0,
+        "timestamp": 0,
+        "latitude": 0,
+        "longitude": 0,
+        "dwell_time_minutes": 0,
+        "nearest_poi_id": 0,
+        "poi_category": 0,
+        "is_weekend": 0
+      },
+      "duplicate_pings": 0,
+      "out_of_bounds_dropped": 0,
+      "anomalous_dwell_dropped": 0,
+      "final_record_count": 6636,
+      "retention_rate_pct": 100.0,
+      "passerby_count": 4157,
+      "shopper_count": 2479,
+      "shopper_ratio": 0.374
+    }
+  }
+}
