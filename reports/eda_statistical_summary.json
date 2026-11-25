@@ -1,0 +1,56 @@
+{
+  "record_metrics": {
+    "total_telemetry_records": 6636,
+    "total_retail_pois": 15,
+    "distinct_devices": 450
+  },
+  "dwell_time_distribution": {
+    "mean_minutes": 14.99,
+    "median_minutes": 5.25,
+    "std_deviation": 18.05,
+    "skewness": 1.51,
+    "kurtosis": 2.33,
+    "passerby_ratio": 0.626,
+    "shopper_ratio": 0.374
+  },
+  "temporal_dynamics": {
+    "peak_hour_24h": 19,
+    "trough_hour_24h": 3,
+    "peak_to_trough_ratio": 77.75,
+    "weekend_daily_avg": 598.2,
+    "weekday_daily_avg": 424.3,
+    "weekend_uplift_multiplier": 1.41
+  },
+  "category_breakdown": {
+    "apparel": {
+      "total_pings": 1742,
+      "mean_dwell_minutes": 15.33,
+      "median_dwell_minutes": 5.37,
+      "shopper_ratio": 0.39
+    },
+    "cafe": {
+      "total_pings": 1779,
+      "mean_dwell_minutes": 14.68,
+      "median_dwell_minutes": 5.22,
+      "shopper_ratio": 0.37
+    },
+    "electronics": {
+      "total_pings": 875,
+      "mean_dwell_minutes": 15.22,
+      "median_dwell_minutes": 5.01,
+      "shopper_ratio": 0.37
+    },
+    "restaurant": {
+      "total_pings": 1349,
+      "mean_dwell_minutes": 14.54,
+      "median_dwell_minutes": 5.34,
+      "shopper_ratio": 0.37
+    },
+    "supermarket": {
+      "total_pings": 891,
+      "mean_dwell_minutes": 15.39,
+      "median_dwell_minutes": 5.27,
+      "shopper_ratio": 0.37
+    }
+  }
+}
